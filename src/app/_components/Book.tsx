@@ -11,13 +11,12 @@ type BookCardProp= {
 book: Book
 }
 export  function BookCard({book}:BookCardProp) {
-  console.log(book);
   const {id , name ,  description , image } = book
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ maxWidth: 300 }}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ height: 300 }}
+        image={image}
         title="green iguana"
       />
       <CardContent>

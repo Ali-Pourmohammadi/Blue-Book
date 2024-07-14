@@ -1,18 +1,18 @@
 import { getAllBooks } from '@/app/_lib/data-service';
 import { Book } from '@/app/_lib/Types';
 import { BookCard } from '@/app/_components/Book';
+import { Suspense } from 'react';
+import Loading from './loading';
+import BookList from '../_components/BookList';
 
 export default async function Page() {
-  const books: Book[] = await getAllBooks();
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-6xl bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-center mb-6">Books List</h1>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </ul>
+    <div className="flex justify-center items-center">
+      <div className=" w-3/6 p-2  flex  flex-col">
+        <h1 className="text-2xl font-bold text-center  my-10 text-gray-100">Books List</h1>
+      <Suspense fallback={<Loading/>}>
+        <BookList/>
+      </Suspense>
       </div>
     </div>
   );
