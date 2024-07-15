@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import {Header} from "@/app/_components/Header"; // Import Header as default export
 import { Metadata } from "next";
 import {Josefin_Sans} from "next/font/google"
+import { ReservationProvider } from "./_components/ReservationContext";
 const josefin = Josefin_Sans({
   subsets:["latin"],
   display:'swap'
@@ -26,9 +26,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <body className = {`${josefin.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col relative  bg-gradient-to-l from-gray-200 to-blue-500 max-h-screen`}>
     <Header /> {/* Render Header component */}
     <main>
-      <AppRouterCacheProvider>
+      <ReservationProvider>
     {children}
-      </AppRouterCacheProvider>
+      </ReservationProvider>
 
     </main>
       </body>

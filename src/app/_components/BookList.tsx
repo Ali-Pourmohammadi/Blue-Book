@@ -9,7 +9,6 @@ interface BookListProps {
 
 export default async function BookList({ filter }: BookListProps) {
   const books: Book[] = await getAllBooks();
-  console.log(filter);
 
   let filterBooks: Book[] = [];
 
@@ -33,8 +32,8 @@ export default async function BookList({ filter }: BookListProps) {
       <div className="my-5 flex justify-end w-full">
         <Filter />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-red-300 justify-items-center">
-        {filterBooks.map((book) => (
+      <div className="flex flex-wrap justify-center gap-3">
+                {filterBooks.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
       </div>

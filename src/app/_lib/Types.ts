@@ -6,7 +6,8 @@ export interface Book {
   author: string;
   publisher: string;
   final_copies: number;
-  created_at: string;
+  created: Date;
   description?: string;
   image: string | null;
+  price_reservation : number
 }
