@@ -25,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
     <body className = {`${josefin.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col relative  bg-gradient-to-l from-gray-200 to-blue-500 max-h-screen`}>
     <Header /> {/* Render Header component */}
-    <main>
+    <main className="flex flex-col justify-center ">
       <ReservationProvider>
     {children}
       </ReservationProvider>

@@ -1,4 +1,5 @@
 // _lib/data-service.ts
+import { auth } from "./auth";
 import supabase from "./supabase";
 import { Book } from "./Types";
 
@@ -40,3 +41,30 @@ async function getBook(bookId:number){
 
 }
 export { getBook };
+
+
+// /get All Books
+async function getAllReservations() {
+  // Assuming auth() is a function that gets the user's session
+  const session = await auth();
+  const {email} = session?.user;
+  console.log(email);
+
+  try {
+      const { data: Reservations, error } = await supabase
+          .from('Reservation')
+          .select('* , Book(name , image)')
+          .eq('user_email', email);
+
+      if (error) {
+          throw new Error(error.message);
+      }
+
+      
+      return Reservations;
+  } catch (error) {
+      throw new Error(`Error fetching reservations: ${error.message}`);
+  }
+}
+
+export { getAllReservations };

@@ -1,6 +1,7 @@
 
 import { BookCard } from "@/app/_components/Book";
-import BookDetails from "@/app/_components/BookDetails";
+import {BookReservation} from "@/app/_components/BookReservation";
+import { auth } from "@/app/_lib/auth";
 import { getAllBooks, getBook } from "@/app/_lib/data-service";
 import { Book } from "@/app/_lib/Types";
 import { log } from "console";
@@ -24,7 +25,7 @@ export default async function Page({ params }: PageProps) {
   const book = await getBook(bookId);  
   return (
     <div className="w-full flex justify-center my-16">
-            <BookDetails book={book}/>
+            <BookReservation book={book} />
       </div>
   );
 }
