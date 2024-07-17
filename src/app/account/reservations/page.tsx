@@ -2,6 +2,7 @@ import ReservationCard from "@/app/_components/ReservationCard";
 import ReservationList from "@/app/_components/ReservationList";
 import { auth } from "@/app/_lib/auth";
 import { getAllReservations } from "@/app/_lib/data-service";
+import { Reservation } from "@/app/_lib/Types";
 import Link from "next/link";
 // import { getBooking, getBookings, getGuest } from "@/app/_lib/data-service";
 
@@ -14,7 +15,7 @@ export default async function Page() {
 //   const session = await auth();
 //   const guest =await getGuest(session.user.email);
 // const bookings = await getBookings(guest.id)
-const reservations = await getAllReservations();
+const reservations :Reservation[] = await getAllReservations();
 
   return (
     <div> 

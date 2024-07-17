@@ -1,7 +1,10 @@
 import { PencilSquareIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-
-export default function ReservationCard({reservation}){
+import { Reservation } from '../_lib/Types';
+interface ReservationCardProps {
+  reservation: Reservation;
+}
+export default function ReservationCard({reservation}:ReservationCardProps){
   const {id , reserved_book , user_email , book_price , day_count , Book : {name , image}} = reservation
   return (
     <div className='flex border border-primary-800 rounded-lg overflow-hidden p-3'>

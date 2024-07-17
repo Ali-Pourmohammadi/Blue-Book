@@ -1,9 +1,12 @@
 'use client';
+import { Reservation } from "../_lib/Types";
 import ReservationCard from "./ReservationCard";
 import { useOptimistic } from 'react';
 // import {deleteReservation} from '../_lib/actions';
-
-export default function ReservationList({ reservations }) {
+interface ReservationListProps {
+  reservations: Reservation[];
+}
+export default function ReservationList({ reservations }:ReservationListProps) {
   
   // const [optimisticBookings, optimisticDelete] = useOptimistic(bookings, (currBookings , bookingId) => {
   //   return currBookings.filter(booking=> booking.id !== bookingId)
